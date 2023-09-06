@@ -2,10 +2,30 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string;
-  age: number;
+  status: boolean;
+  statusCode: number;
+  data: {
+    id: number;
+    name: string;
+    price: number;
+    size: string;
+  }[];
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ name: "Aji", age: 23 });
+  const data = [
+    {
+      id: 1,
+      name: "Baju Baru",
+      price: 500000,
+      size: "xl",
+    },
+    {
+      id: 1,
+      name: "Baju Lama",
+      price: 100000,
+      size: "l",
+    },
+  ];
+  res.status(200).json({ status: true, statusCode: 200, data });
 }
