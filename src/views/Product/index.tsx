@@ -1,18 +1,19 @@
 import { ProductsProps } from "@/types";
 import styles from "./Product.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProductView = ({ products }: { products: ProductsProps[] }) => {
   return (
     <div className={styles.product}>
-      <h1 className={styles.product__title}>Product Page</h1>
+      <h1 className={styles.product__title}>Product</h1>
       <div className={styles.product__content}>
         {products.length > 0 ? (
           <>
             {products.map((product: ProductsProps) => (
               <Link href={`/product/${product.id}`} key={product.id} className={styles.product__content__item}>
                 <div className={styles.product__content__item__image}>
-                  <img src={product.image} alt={product.name} />
+                  <Image src={product.image} alt={product.name} width={500} height={500} priority />
                 </div>
                 <h4 className={styles.product__content__item__name}>{product.name}</h4>
                 <p className={styles.product__content__item__category}>{product.category}</p>
