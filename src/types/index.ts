@@ -11,3 +11,8 @@ export interface ProductsProps {
   image: string;
   category: string;
 }
+
+export interface RegisterProps {
+  status: boolean;
+  message: string;
+}
