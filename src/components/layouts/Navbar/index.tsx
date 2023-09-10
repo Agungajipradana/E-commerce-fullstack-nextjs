@@ -1,14 +1,93 @@
 import { signIn, useSession, signOut } from "next-auth/react";
 import styles from "./Navbar.module.scss";
 import Image from "next/image";
+import searchIcon from "@/assets/images/navbar/search.svg";
+import Link from "next/link";
+import { useState } from "react";
+import { Button, Offcanvas } from "react-bootstrap";
+import { FaBars, FaXmark } from "react-icons/fa6";
+
+const navLink = [
+  { label: "New Arrivals", path: "/new" },
+  { label: "Men", path: "/men" },
+  { label: "Woman", path: "/women" },
+  { label: "Kids", path: "/kids" },
+];
+
+const options = [
+  {
+    name: "Enable both scrolling & backdrop",
+    scroll: true,
+    backdrop: true,
+  },
+];
 
 const Navbar = () => {
   const { data }: any = useSession();
 
+  function OffCanvasExample({ name, ...props }: any) {
+    const [openSideBar, setOpenSideBar] = useState<boolean>(false);
+    const handleOpenSidebar = () => setOpenSideBar(true);
+    const handleClose = () => setOpenSideBar(false);
+
+    return (
+      <>
+        <Button variant="primary" onClick={handleOpenSidebar} className={styles.Offcanvas__button}>
+          <FaBars size={24} />
+        </Button>
+
+        <Offcanvas show={openSideBar} onHide={handleClose} {...props} className={styles.Offcanvas}>
+          {/* <Offcanvas.Header closeButton className={styles.Offcanvas__header}> */}
+          {/* <Offcanvas.Title className={styles.Offcanvas__title}>Offcanvas</Offcanvas.Title> */}
+          {/* </Offcanvas.Header> */}
+          <Button onClick={handleClose} className={styles.Offcanvas__button}>
+            <FaXmark size={24} />
+          </Button>
+          <Offcanvas.Body className={styles.Offcanvas__body}>
+            {navLink.map((item) => (
+              <Link href={item.path} key={item.path} className={styles.Offcanvas__body__link}>
+                {item.label}
+              </Link>
+            ))}
+
+            <div>
+              {data?.user?.image && <Image className={styles.avatar} src={data.user.image} alt={data.user.fullname} width={30} height={30} />}
+              {data && data.user.fullname}
+              {data ? (
+                <button className={styles.Offcanvas__body__button} onClick={() => signOut()}>
+                  Sign out
+                </button>
+              ) : (
+                <button className={styles.Offcanvas__body__button} onClick={() => signIn()}>
+                  Sign In
+                </button>
+              )}
+            </div>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </>
+    );
+  }
+
   return (
     <>
+      {/* Desktop View */}
       <div className={styles.navbar}>
-        <div className="big">Navbar</div>
+        <div>
+          <form>
+            <div className={styles.navbar__search}>
+              <Image src={searchIcon} alt="" className={styles.navbar__search__image} />
+              <input type="text" id="search" name="search" placeholder="Type any products here" className={styles.navbar__search__input} />
+            </div>
+          </form>
+        </div>
+        <div className={styles.navbar__navlink}>
+          {navLink.map((item) => (
+            <Link href={item.path} key={item.path}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
         <div className={styles.profile}>
           {data?.user?.image && <Image className={styles.avatar} src={data.user.image} alt={data.user.fullname} width={30} height={30} />}
           {data && data.user.fullname}
@@ -22,6 +101,18 @@ const Navbar = () => {
             </button>
           )}
         </div>
+      </div>
+      {/* Mobile View */}
+      <div className={styles.navbar__mobile}>
+        <form>
+          <div className={styles.navbar__search}>
+            <Image src={searchIcon} alt="" className={styles.navbar__mobile__search__image} />
+            <input type="text" id="search" name="search" placeholder="Type any products here" className={styles.navbar__mobile__search__input} />
+          </div>
+        </form>
+        {options.map((props, idx) => (
+          <OffCanvasExample key={idx} {...props} />
+        ))}
       </div>
     </>
   );
