@@ -30,6 +30,11 @@
     &__link {
       text-decoration: none;
       color: #000;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s;
+      &:hover {
+        border-bottom: 1px solid #007e70;
+      }
     }
   }
   @media screen and (max-width: 768px) {
@@ -101,6 +106,12 @@
     height: 40px;
     border: none;
     background: none;
+    &:hover {
+      background: none;
+    }
+    &:active {
+      background: none;
+    }
   }
   &__title {
     color: #000;
@@ -114,7 +125,7 @@
 
     &__link {
       display: grid;
-      grid-template-columns: 1fr auto; /* Mengatur link di paling kiri dan ikon di paling kanan */
+      grid-template-columns: 1fr auto;
       align-items: center;
       border-bottom: 1px solid black;
       margin-bottom: 10px;

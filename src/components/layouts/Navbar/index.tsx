@@ -24,7 +24,7 @@ const Navbar = () => {
     return (
       <>
         <>
-          <Button variant="primary" onClick={handleOpenSidebar} className={styles.Offcanvas__button}>
+          <Button onClick={handleOpenSidebar} className={styles.Offcanvas__button}>
             <FaBars size={24} color="black" />
           </Button>
           <Offcanvas show={openSideBar} onHide={handleClose} {...props} className={styles.Offcanvas}>
