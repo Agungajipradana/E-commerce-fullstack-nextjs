@@ -5,21 +5,13 @@ import searchIcon from "@/assets/images/navbar/search.svg";
 import Link from "next/link";
 import { useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
-import { FaBars, FaXmark } from "react-icons/fa6";
+import { FaBars, FaAngleRight } from "react-icons/fa6";
 
 const navLink = [
   { label: "New Arrivals", path: "/new" },
   { label: "Men", path: "/men" },
   { label: "Woman", path: "/women" },
   { label: "Kids", path: "/kids" },
-];
-
-const options = [
-  {
-    name: "Enable both scrolling & backdrop",
-    scroll: true,
-    backdrop: true,
-  },
 ];
 
 const Navbar = () => {
@@ -29,42 +21,40 @@ const Navbar = () => {
     const [openSideBar, setOpenSideBar] = useState<boolean>(false);
     const handleOpenSidebar = () => setOpenSideBar(true);
     const handleClose = () => setOpenSideBar(false);
-
     return (
       <>
-        <Button variant="primary" onClick={handleOpenSidebar} className={styles.Offcanvas__button}>
-          <FaBars size={24} />
-        </Button>
-
-        <Offcanvas show={openSideBar} onHide={handleClose} {...props} className={styles.Offcanvas}>
-          {/* <Offcanvas.Header closeButton className={styles.Offcanvas__header}> */}
-          {/* <Offcanvas.Title className={styles.Offcanvas__title}>Offcanvas</Offcanvas.Title> */}
-          {/* </Offcanvas.Header> */}
-          <Button onClick={handleClose} className={styles.Offcanvas__button}>
-            <FaXmark size={24} />
+        <>
+          <Button variant="primary" onClick={handleOpenSidebar} className={styles.Offcanvas__button}>
+            <FaBars size={24} color="black" />
           </Button>
-          <Offcanvas.Body className={styles.Offcanvas__body}>
-            {navLink.map((item) => (
-              <Link href={item.path} key={item.path} className={styles.Offcanvas__body__link}>
-                {item.label}
-              </Link>
-            ))}
+          <Offcanvas show={openSideBar} onHide={handleClose} {...props} className={styles.Offcanvas}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title></Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body className={styles.Offcanvas__body}>
+              {navLink.map((item) => (
+                <Link href={item.path} key={item.path} className={styles.Offcanvas__body__link}>
+                  {item.label}
+                  <FaAngleRight size={24} className={styles.Offcanvas__body__link__icon} />
+                </Link>
+              ))}
 
-            <div>
-              {data?.user?.image && <Image className={styles.avatar} src={data.user.image} alt={data.user.fullname} width={30} height={30} />}
-              {data && data.user.fullname}
-              {data ? (
-                <button className={styles.Offcanvas__body__button} onClick={() => signOut()}>
-                  Sign out
-                </button>
-              ) : (
-                <button className={styles.Offcanvas__body__button} onClick={() => signIn()}>
-                  Sign In
-                </button>
-              )}
-            </div>
-          </Offcanvas.Body>
-        </Offcanvas>
+              <div>
+                {data?.user?.image && <Image className={styles.avatar} src={data.user.image} alt={data.user.fullname} width={30} height={30} />}
+                {data && data.user.fullname}
+                {data ? (
+                  <button className={styles.Offcanvas__body__button} onClick={() => signOut()}>
+                    Sign out
+                  </button>
+                ) : (
+                  <button className={styles.Offcanvas__body__button} onClick={() => signIn()}>
+                    Sign In
+                  </button>
+                )}
+              </div>
+            </Offcanvas.Body>
+          </Offcanvas>
+        </>
       </>
     );
   }
@@ -83,7 +73,7 @@ const Navbar = () => {
         </div>
         <div className={styles.navbar__navlink}>
           {navLink.map((item) => (
-            <Link href={item.path} key={item.path}>
+            <Link href={item.path} key={item.path} className={styles.navbar__navlink__link}>
               {item.label}
             </Link>
           ))}
@@ -110,8 +100,8 @@ const Navbar = () => {
             <input type="text" id="search" name="search" placeholder="Type any products here" className={styles.navbar__mobile__search__input} />
           </div>
         </form>
-        {options.map((props, idx) => (
-          <OffCanvasExample key={idx} {...props} />
+        {["end"].map((placement, idx) => (
+          <OffCanvasExample key={idx} placement={placement} name={placement} />
         ))}
       </div>
     </>

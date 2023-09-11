@@ -1,3 +1,4 @@
+import HeroPage from "@/views/Product/Hero";
 import Head from "next/head";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <div>Hallo Dek</div>
+      <HeroPage />
     </>
   );
 }

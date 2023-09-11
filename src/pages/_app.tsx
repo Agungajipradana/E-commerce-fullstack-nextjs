@@ -1,5 +1,6 @@
 import AppShell from "@/components/layouts/AppShell";
-import "@/styles/globals.css";
+// import "@/styles/globals.css";
+import "@/styles/main.scss";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 
