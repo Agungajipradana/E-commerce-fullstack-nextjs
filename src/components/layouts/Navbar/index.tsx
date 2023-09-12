@@ -8,10 +8,10 @@ import { Button, Offcanvas } from "react-bootstrap";
 import { FaBars, FaAngleRight } from "react-icons/fa6";
 
 const navLink = [
-  { label: "New Arrivals", path: "/new" },
-  { label: "Men", path: "/men" },
-  { label: "Woman", path: "/women" },
-  { label: "Kids", path: "/kids" },
+  { label: "New Arrivals", path: "/product/newarrivals" },
+  { label: "Men", path: "/product/men" },
+  { label: "Woman", path: "/product/woman" },
+  { label: "Kids", path: "/product/kids" },
 ];
 
 const Navbar = () => {

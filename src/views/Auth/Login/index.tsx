@@ -3,6 +3,8 @@ import styles from "./Login.module.scss";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import googleIcon from "../../../assets/images/login/google-icon.svg";
+import Image from "next/image";
 
 const LoginView = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +58,7 @@ const LoginView = () => {
               {isLoading ? "Loading..." : "Login"}
             </button>
           </form>
+          <h5 className={styles.login__form__item__or}>Or</h5>
           <button
             onClick={() =>
               signIn("google", {
@@ -66,6 +69,7 @@ const LoginView = () => {
             className={styles.login__form__item__google}
           >
             Sign In With Google
+            <Image src={googleIcon} alt="" className={styles.login__form__item__google__icon} />
           </button>
         </div>
         <p className={styles.login__link}>
