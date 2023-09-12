@@ -16,3 +16,7 @@ export interface RegisterProps {
   status: boolean;
   message: string;
 }
+
+export interface ArrowProps {
+  onClick: () => void;
+}
