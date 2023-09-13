@@ -6,6 +6,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import { FaBars, FaAngleRight } from "react-icons/fa6";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const navLink = [
   { label: "New Arrivals", path: "/product/newarrivals" },
@@ -59,6 +62,44 @@ const Navbar = () => {
     );
   }
 
+  function DiscountCarousel() {
+    const settings = {
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 200,
+      autoplaySpeed: 2500,
+      cssEase: "linear",
+    };
+    return (
+      <div className={styles.carouselDiscount}>
+        <Slider {...settings}>
+          <div>
+            <h6>Hello Sneakers App</h6>
+            <p>
+              Download the app to access everything Sneakers. <a href="">Get Your Great</a>
+            </p>
+          </div>
+          <div>
+            <h6>New Styles on Sale: Up to 40% Off </h6>
+            <a href="">Shop All Our New Markdowns</a>
+          </div>
+          <div>
+            <h6>Free Delivery</h6>
+            <p>
+              Applies to orders of Rp3.000.000 or more. <a href="">View details</a>
+            </p>
+          </div>
+          <div>
+            <h6> Students Now Get 10% Off </h6>
+            <a href="">Learn More</a>
+          </div>
+        </Slider>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* Desktop View */}
@@ -92,6 +133,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
       {/* Mobile View */}
       <div className={styles.navbar__mobile}>
         <form>
@@ -104,6 +146,7 @@ const Navbar = () => {
           <OffCanvasExample key={idx} placement={placement} name={placement} />
         ))}
       </div>
+      <DiscountCarousel />
     </>
   );
 };
