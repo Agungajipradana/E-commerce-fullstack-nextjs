@@ -5,25 +5,25 @@ import DetailProductNikeMenView from "@/views/Product/Men/NikeMan/DetailProductN
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
-const DetailProductNikeMenPage = ({ product }: { product: ProductsProps }) => {
+const DetailProductNikeMenPage = ({ nikeMen }: { nikeMen: ProductsProps }) => {
   const { query } = useRouter();
 
   return (
     <>
-      <DetailProductNikeMenView product={product} />
+      <DetailProductNikeMenView nikeMen={nikeMen} />
     </>
   );
 };
 
 export default DetailProductNikeMenPage;
 
-export async function getServerSideProps({ params }: { params: { product: string } }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/men/nike/nike-men?id=${params.product}`);
+export async function getServerSideProps({ params }: { params: { nikeMen: string } }) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/men/nike/nikeMen/${params.nikeMen}`);
   const response = await res.json();
 
   return {
     props: {
-      product: response.data,
+      nikeMen: response.data,
     },
   };
 }
