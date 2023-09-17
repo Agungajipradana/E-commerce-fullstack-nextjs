@@ -5,9 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &__between {
+    display: flex;
+    justify-content: space-between;
+  }
   &__image {
     width: 500px;
-    height: 600px;
+    height: 500px;
   }
   &__desc {
     margin-left: 40px;
@@ -24,14 +28,89 @@
     font-weight: bold;
     margin-top: 10px;
   }
+  &__selectSize {
+    display: flex;
+    justify-content: space-between;
+    &__p {
+      font-weight: bold;
+    }
+  }
+  &__size {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Mengatur grid dengan maksimal 3 kolom */
+    gap: 10px;
+    &__button {
+      border: 0.5px solid gray;
+      border-radius: 5%;
+      background: none;
+      width: 80px;
+      height: 35px;
+      &:hover {
+        border: 0.5px solid #000;
+      }
+    }
+  }
+  &__button {
+    margin-top: 20px;
+    &__addToCart {
+      width: 100%;
+      height: 50px;
+      background-color: #000;
+      color: white;
+      border: 0.5px solid #000;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 0.5px solid #000;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+    &__buyNow {
+      margin-top: 10px;
+      width: 100%;
+      height: 50px;
+      background-color: #fff;
+      color: #000;
+      border: 0.5px solid #000;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+      &:hover {
+        background-color: #000;
+        color: #fff;
+        border: 0.5px solid #000;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+    &__view {
+      margin-top: 20px;
+      &__product {
+        background: none;
+        border: none;
+        border-bottom: 0.5px solid gray;
+        color: gray;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          color: #000;
+          border: none;
+          border-bottom: 0.5px solid #000;
+          background: none;
+        }
+      }
+    }
+  }
 }
 
+.activeSizeButton {
+  background-color: #000;
+  color: #fff;
+  border: 0.5px solid #000;
+}
 .title {
   text-align: center;
   font-size: 32px;
-}
-
-.selectSize {
-  display: flex;
-  gap: 20px;
 }

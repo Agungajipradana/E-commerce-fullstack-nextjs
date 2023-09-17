@@ -10,6 +10,14 @@ export interface ProductsProps {
   price: number;
   image: string;
   category: string;
+  size: number[];
+  description: string;
+  sole: string;
+  color: string;
+  style: string;
+  country: string;
+  titleOrigins: string;
+  origins: string;
 }
 
 export interface RegisterProps {
