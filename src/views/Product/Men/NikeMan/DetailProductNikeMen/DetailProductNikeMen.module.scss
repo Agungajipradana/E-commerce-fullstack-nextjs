@@ -89,16 +89,18 @@
       margin-top: 20px;
       &__product {
         background: none;
-        border: none;
-        border-bottom: 0.5px solid gray;
+        //border: none;
+        //border-bottom: 0.5px solid gray;
         color: gray;
         font-weight: bold;
         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        outline: none;
         &:hover {
           color: #000;
           border: none;
           border-bottom: 0.5px solid #000;
           background: none;
+          outline: none;
         }
       }
     }

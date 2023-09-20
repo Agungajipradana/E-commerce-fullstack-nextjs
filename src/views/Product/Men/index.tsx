@@ -1,8 +1,12 @@
+import styles from "./Men.module.scss";
+import BrandNikeMen from "@/views/PopularBrand/Nike/Men";
+
 const MenView = () => {
   return (
     <>
-      <div>
-        <h1>Men View</h1>
+      <div className={styles.men}>
+        <h1 className={styles.men__h1}>Men Product</h1>
+        {/* <BrandNikeMen /> */}
       </div>
     </>
   );

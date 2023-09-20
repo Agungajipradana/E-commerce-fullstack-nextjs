@@ -1,8 +1,10 @@
+import MenView from "@/views/Product/Men";
+
 const MenPage = () => {
   return (
     <>
       <div>
-        <h1>Men</h1>
+        <MenView />
       </div>
     </>
   );

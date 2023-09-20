@@ -48,7 +48,7 @@ const DetailProductNikeMenView = ({ nikeMen }: { nikeMen: ProductsProps }) => {
     );
   }
 
-  function App() {
+  function ViewProductDetails() {
     const [modalShow, setModalShow] = useState(false);
 
     return (
@@ -101,7 +101,7 @@ const DetailProductNikeMenView = ({ nikeMen }: { nikeMen: ProductsProps }) => {
             </div>
             <div className={styles.productDetail__button__view}>
               {/* <button className={styles.productDetail__button__view__product}>View Product Details</button> */}
-              <App />
+              <ViewProductDetails />
             </div>
           </div>
         </div>
