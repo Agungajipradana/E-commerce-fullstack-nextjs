@@ -5,12 +5,14 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import googleIcon from "../../../assets/images/login/google-icon.svg";
 import Image from "next/image";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const LoginView = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState("");
   const { push, query } = useRouter();
   const callbackUrl: any = query.callbackUrl || "/";
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -52,13 +54,24 @@ const LoginView = () => {
               <label htmlFor="password" className={styles.login__form__item__label}>
                 Password
               </label>
-              <input type="password" id="password" name="password" placeholder="password" className={styles.login__form__item__input} />
+              <div className={styles.login__form__item__input__password}>
+                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" className={styles.login__form__item__input} />
+                <button type="button" className={styles.login__form__item__showPassword} onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <AiFillEyeInvisible size={25} color="black" /> : <AiFillEye size={25} color="black" />}
+                </button>
+              </div>
             </div>
             <button type="submit" className={styles.login__form__item__button} disabled={isLoading}>
               {isLoading ? "Loading..." : "Login"}
             </button>
           </form>
-          <h5 className={styles.login__form__item__or}>Or</h5>
+
+          <h6 className={styles.login__form__item__or}>
+            <div className={styles.login__form__item__line}></div>
+            Or
+            <div className={styles.login__form__item__line}></div>
+          </h6>
+
           <button
             onClick={() =>
               signIn("google", {
@@ -68,8 +81,8 @@ const LoginView = () => {
             }
             className={styles.login__form__item__google}
           >
-            Sign In With Google
             <Image src={googleIcon} alt="" className={styles.login__form__item__google__icon} />
+            Continue with Google
           </button>
         </div>
         <p className={styles.login__link}>

@@ -17,16 +17,43 @@
   &__form {
     width: 30%;
     padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.5);
     margin-bottom: 20px;
+    @media (max-width: 1024px) {
+      width: 40%;
+    }
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+    @media (max-width: 640px) {
+      width: 80%;
+    }
     &__item {
       display: flex;
       flex-direction: column;
       margin: 20px 0;
       &__input {
+        position: relative;
         padding: 10px;
-        background-color: #eee;
+        // background-color: #eee;
         margin-top: 5px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        width: 100%;
+
+        &__password {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+      &__showPassword {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0;
       }
       &__button {
         background-color: #000000;
@@ -34,6 +61,18 @@
         width: 100%;
         padding: 10px;
         border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          background-color: #eee;
+          color: #000000;
+        }
+      }
+      &__line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+        margin: 0 10px;
       }
       &__or {
         display: flex;
@@ -41,12 +80,24 @@
         align-items: center;
         text-align: center;
         padding-top: 10px;
+        margin: 0;
       }
       &__google {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
         border: none;
+        border-radius: 10px;
+        background-color: #eee;
+        color: #000;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          background-color: #000;
+          color: #eee;
+        }
         &__icon {
           width: 40px;
           height: 40px;
