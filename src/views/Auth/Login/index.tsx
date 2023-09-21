@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Login.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import googleIcon from "../../../assets/images/login/google-icon.svg";
@@ -13,6 +13,11 @@ const LoginView = () => {
   const { push, query } = useRouter();
   const callbackUrl: any = query.callbackUrl || "/";
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef.current && inputRef.current.focus();
+  }, []);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -48,16 +53,18 @@ const LoginView = () => {
               <label htmlFor="email" className={styles.login__form__item__label}>
                 Email
               </label>
-              <input type="text" id="email" name="email" placeholder="email" className={styles.login__form__item__input} />
+              <div className={styles.login__form__item__email}>
+                <input type="text" id="email" name="email" placeholder="email" className={styles.login__form__item__input__email} ref={inputRef} />
+              </div>
             </div>
             <div className={styles.login__form__item}>
               <label htmlFor="password" className={styles.login__form__item__label}>
                 Password
               </label>
-              <div className={styles.login__form__item__input__password}>
-                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" className={styles.login__form__item__input} />
+              <div className={styles.login__form__item__password}>
+                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" className={styles.login__form__item__input__password} />
                 <button type="button" className={styles.login__form__item__showPassword} onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <AiFillEyeInvisible size={25} color="black" /> : <AiFillEye size={25} color="black" />}
+                  {showPassword ? <AiFillEye size={25} color="black" /> : <AiFillEyeInvisible size={25} color="black" />}
                 </button>
               </div>
             </div>
@@ -86,7 +93,10 @@ const LoginView = () => {
           </button>
         </div>
         <p className={styles.login__link}>
-          Don{"'"}t have an account? Sign up <Link href="/auth/register">here</Link>
+          Don{"'"}t have an account? Sign up{" "}
+          <Link href="/auth/register" className={styles.login__link__Link}>
+            here
+          </Link>
         </p>
       </div>
     </>

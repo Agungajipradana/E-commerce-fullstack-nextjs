@@ -20,36 +20,63 @@
     border-radius: 10px;
     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.5);
     margin-bottom: 20px;
-    @media (max-width: 1024px) {
-      width: 40%;
-    }
-    @media (max-width: 768px) {
-      width: 60%;
-    }
-    @media (max-width: 640px) {
-      width: 80%;
-    }
+
     &__item {
       display: flex;
       flex-direction: column;
       margin: 20px 0;
       &__input {
+        &__email {
+          position: relative;
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+        &__password {
+          position: relative;
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+      }
+      &__email {
         position: relative;
-        padding: 10px;
-        // background-color: #eee;
         margin-top: 5px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
         border: 2px solid #ccc;
         border-radius: 10px;
         width: 100%;
-
-        &__password {
-          display: flex;
-          align-items: center;
-          gap: 10px;
+        transition: border 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          border: 2px solid black;
+        }
+        &:focus {
+          border: 2px solid black;
+        }
+      }
+      &__password {
+        position: relative;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        width: 100%;
+        transition: border 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          border: 2px solid black;
+        }
+        &:focus {
+          border: 2px solid black;
         }
       }
       &__showPassword {
         background: none;
+        outline: none;
         border: none;
         cursor: pointer;
         font-size: 14px;
@@ -80,7 +107,7 @@
         align-items: center;
         text-align: center;
         padding-top: 10px;
-        margin: 0;
+        padding-bottom: 5px;
       }
       &__google {
         width: 100%;
@@ -88,7 +115,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin-top: 10px;
         border: none;
         border-radius: 10px;
         background-color: #eee;
@@ -104,9 +130,22 @@
         }
       }
     }
+    @media (max-width: 1024px) {
+      width: 50%;
+    }
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+    @media (max-width: 640px) {
+      width: 80%;
+    }
+    @media (max-width: 480px) {
+      width: 90%;
+    }
   }
   &__link {
-    a {
+    &__Link {
+      text-decoration: none;
       color: #159953;
       font-weight: bold;
     }
