@@ -1,12 +1,24 @@
 import Link from "next/link";
 import styles from "./Register.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
+import googleIcon from "../../../assets/images/login/google-icon.svg";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Image from "next/image";
 
 const RegisterView = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const { push } = useRouter();
+  const { push, query } = useRouter();
+  const callbackUrl: any = query.callbackUrl || "/";
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef.current && inputRef.current.focus();
+  }, []);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setError("");
@@ -35,35 +47,66 @@ const RegisterView = () => {
   return (
     <>
       <div className={styles.register}>
-        <h1 className={styles.register__title}>Register </h1>
+        <h1 className={styles.register__title}>Sign up </h1>
         {error && <p className={styles.register__error}>{error}</p>}
         <div className={styles.register__form}>
+          <button
+            onClick={() =>
+              signIn("google", {
+                callbackUrl,
+                redirect: false,
+              })
+            }
+            className={styles.register__form__item__google}
+          >
+            <Image src={googleIcon} alt="" className={styles.register__form__item__google__icon} />
+            Continue with Google
+          </button>
+
+          <h6 className={styles.register__form__item__or}>
+            <div className={styles.register__form__item__line}></div>
+            Or
+            <div className={styles.register__form__item__line}></div>
+          </h6>
+
           <form onSubmit={handleSubmit}>
             <div className={styles.register__form__item}>
               <label htmlFor="email" className={styles.register__form__item__label}>
                 Email
               </label>
-              <input type="text" id="email" name="email" placeholder="email" className={styles.register__form__item__input} />
+              <div className={styles.register__form__item__email}>
+                <input type="text" id="email" name="email" placeholder="email" className={styles.register__form__item__input__email} ref={inputRef} />
+              </div>
             </div>
             <div className={styles.register__form__item}>
               <label htmlFor="fullname" className={styles.register__form__item__label}>
                 Full name
               </label>
-              <input type="text" id="fullname" name="fullname" placeholder="Fullname" className={styles.register__form__item__input} />
+              <div className={styles.register__form__item__email}>
+                <input type="text" id="fullname" name="fullname" placeholder="fullname" className={styles.register__form__item__input__email} />
+              </div>
             </div>
             <div className={styles.register__form__item}>
               <label htmlFor="password" className={styles.register__form__item__label}>
                 Password
               </label>
-              <input type="password" id="password" name="password" placeholder="password" className={styles.register__form__item__input} />
+              <div className={styles.register__form__item__password}>
+                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" className={styles.register__form__item__input__password} />
+                <button type="button" className={styles.register__form__item__showPassword} onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <AiFillEye size={25} color="black" /> : <AiFillEyeInvisible size={25} color="black" />}
+                </button>
+              </div>
             </div>
             <button type="submit" className={styles.register__form__item__button} disabled={isLoading}>
-              {isLoading ? "Loading..." : "Register"}
+              {isLoading ? "Loading..." : "Sign up"}
             </button>
           </form>
         </div>
         <p className={styles.register__link}>
-          Already have an account? Sign in <Link href="/auth/login">here</Link>
+          Already have an account? Log in{" "}
+          <Link href="/auth/login" className={styles.register__link__Link}>
+            here
+          </Link>
         </p>
       </div>
     </>

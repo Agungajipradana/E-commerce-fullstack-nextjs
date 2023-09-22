@@ -16,27 +16,135 @@
   &__form {
     width: 30%;
     padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.5);
-    margin-bottom: 20px;
     &__item {
       display: flex;
       flex-direction: column;
       margin: 20px 0;
       &__input {
-        padding: 10px;
-        background-color: #eee;
+        &__email {
+          position: relative;
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+        &__password {
+          position: relative;
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+      }
+      &__email {
+        position: relative;
         margin-top: 5px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        width: 100%;
+        transition: border 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          border: 2px solid black;
+        }
+        &:focus {
+          border: 2px solid black;
+        }
+      }
+      &__password {
+        position: relative;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        width: 100%;
+        transition: border 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          border: 2px solid black;
+        }
+        &:focus {
+          border: 2px solid black;
+        }
+      }
+      &__showPassword {
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0;
       }
       &__button {
         background-color: #000000;
         color: #fff;
         width: 100%;
         padding: 10px;
+        border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          background-color: #eee;
+          color: #000000;
+          transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
       }
+      &__line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+        margin: 0 10px;
+      }
+      &__or {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+      }
+      &__google {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background-color: #eee;
+        color: #000;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        &:hover {
+          background-color: #000;
+          color: #eee;
+          transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        &__icon {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      width: 50%;
+    }
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+    @media (max-width: 640px) {
+      width: 80%;
+    }
+    @media (max-width: 480px) {
+      width: 90%;
     }
   }
   &__link {
-    a {
+    margin-top: 10px;
+    &__Link {
+      text-decoration: none;
       color: #159953;
       font-weight: bold;
     }
