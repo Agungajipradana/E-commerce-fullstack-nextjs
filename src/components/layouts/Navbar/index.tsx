@@ -9,6 +9,7 @@ import { FaBars, FaAngleRight } from "react-icons/fa6";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Search from "@/pages/search";
 
 const navLink = [
   { label: "New Arrivals", path: "/product/newarrivals" },
@@ -148,30 +149,11 @@ const navLinkKids = [
 
 const Navbar = () => {
   const { data }: any = useSession();
-  const [isDropdownOpenSearch, setIsDropdownSearch] = useState<boolean>(false);
-  const dropdownRef: RefObject<HTMLDivElement> = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && event.target instanceof Node && !dropdownRef.current.contains(event.target)) {
-        handleCloseSearch();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    inputRef.current && inputRef.current.focus();
   }, []);
-
-  const handleOpenSearch = () => {
-    setIsDropdownSearch(true);
-  };
-
-  const handleCloseSearch = () => {
-    setIsDropdownSearch(false);
-  };
 
   function OffCanvasExample({ name, ...props }: any) {
     const [openSideBar, setOpenSideBar] = useState<boolean>(false);
@@ -195,7 +177,7 @@ const Navbar = () => {
               {navLink.map((item) => (
                 <Link href={item.path} key={item.path} className={styles.Offcanvas__body__link}>
                   {item.label}
-                  <FaAngleRight size={24} className={styles.Offcanvas__body__link__icon} />
+                  <FaAngleRight size={20} color="gray" className={styles.Offcanvas__body__link__icon} />
                 </Link>
               ))}
 
@@ -394,23 +376,7 @@ const Navbar = () => {
       {/* Desktop View */}
       <div className={styles.navbar}>
         <div>
-          <form>
-            <div className={styles.navbar__search}>
-              <Image src={searchIcon} alt="" className={styles.navbar__search__image} />
-              <input type="text" id="search" name="search" placeholder="Type any products here" className={styles.navbar__search__input} onClick={handleOpenSearch} />
-            </div>
-            {isDropdownOpenSearch && (
-              <div ref={dropdownRef} className={styles.dropdownSearch}>
-                <div className={styles.dropdownSearch__search}>
-                  <Image src={searchIcon} alt="" className={styles.navbar__search__image} />
-                  <input type="text" id="searchDropdown" name="searchDropdown" placeholder="Type any products here" className={styles.dropdownSearch__input} />
-                  <button className={styles.dropdownSearch__button} onClick={handleCloseSearch}>
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            )}
-          </form>
+          <Search />
         </div>
         <div className={styles.navbar__navlink}>
           {/* New Arrivals Bar */}
