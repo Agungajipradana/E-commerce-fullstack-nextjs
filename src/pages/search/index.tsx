@@ -5,6 +5,8 @@ import { RefObject, useEffect, useRef, useState } from "react";
 import styles from "./search.module.scss";
 import Link from "next/link";
 import { ProductsProps } from "@/types";
+import { useDispatch, useSelector } from "react-redux";
+import { GetProductRequest } from "@/utils/redux/action/productAction";
 
 const navLinkSearch = [
   {
@@ -46,11 +48,17 @@ const navLinkSearch = [
 ];
 
 const Search = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((state: any) => state.productState);
   const [isDropdownOpenSearch, setIsDropdownSearch] = useState<boolean>(false);
   const dropdownRef: RefObject<HTMLDivElement> = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
+
+  useEffect(() => {
+    dispatch(GetProductRequest());
+  }, [dispatch]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -66,49 +74,21 @@ const Search = () => {
     };
   }, []);
 
-  const handleSearchChange = (e: any) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
-  const handleSearch = async (e: any) => {
-    // e.preventDefault();
-    const query = e.target.value;
+  const handleSearch = async () => {
+    const query = searchQuery.trim();
     setSearchQuery(query);
 
-    if (query.trim() === "") {
+    if (query === "") {
       setSearchResults([]);
       return;
     }
-    // router.push(`/product?q=${searchQuery}`);
-    // router.push(`/product/${searchQuery}`);
-    // router.push(`/product?keyword=${searchQuery}`);
-    const pathSegments = router.asPath.split("/");
-    const brandSegment = pathSegments[pathSegments.length - 1];
 
-    try {
-      // const response = await fetch(`/api/search?keyword=${searchQuery}`);
-      let response;
-      let apiPath;
-
-      if (brandSegment === "nike") {
-        apiPath = `/api/men/nike?keyword=${query}`;
-      } else if (brandSegment === "adidas") {
-        apiPath = `/api/adidas?keyword=${query}`;
-      } else {
-        apiPath = `/api/product?keyword=${query}`;
-      }
-
-      response = await fetch(apiPath);
-
-      if (response.ok) {
-        const data = await response.json();
-        setSearchResults(data.data);
-      } else {
-        console.error("Gagal mengambil data dari API");
-      }
-    } catch (error) {
-      console.error("Terjadi kesalahan saat mengambil data:", error);
-    }
+    const filteredProducts = products.filter((product: ProductsProps) => product.name.toLowerCase().includes(query.toLowerCase()));
+    setSearchResults(filteredProducts);
   };
 
   const handleOpenSearch = () => {
@@ -130,7 +110,7 @@ const Search = () => {
           <div ref={dropdownRef} className={styles.dropdownSearch}>
             <div className={styles.dropdownSearch__search}>
               <Image src={searchIcon} alt="" className={styles.search__image} />
-              <input type="text" id="searchDropdown" name="searchDropdown" placeholder="Type any products here" className={styles.dropdownSearch__input} value={searchQuery} onChange={handleSearch} />
+              <input type="text" id="searchDropdown" name="searchDropdown" placeholder="Type any products here" className={styles.dropdownSearch__input} value={searchQuery} onChange={handleSearchChange} />
 
               {/* <button type="submit" className={styles.dropdownSearch__button__search}>
                 Search

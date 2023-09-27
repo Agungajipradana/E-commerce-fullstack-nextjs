@@ -1,8 +1,11 @@
 import * as ActionProduct from "../constant/productConstant";
 
-export const GetProductRequest = (payload: any) => ({
+// export const GetProductRequest = (payload: any) => ({
+//   type: ActionProduct.GET_PRODUCT_REQUEST,
+//   payload,
+// });
+export const GetProductRequest = () => ({
   type: ActionProduct.GET_PRODUCT_REQUEST,
-  payload,
 });
 
 export const GetProductSuccess = (payload: any) => ({
