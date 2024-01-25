@@ -1,4 +1,4 @@
-.nikeMan__title {
+.nikeWoman__title {
   display: flex;
   align-items: center;
   margin-left: 40px;
@@ -13,14 +13,14 @@
   }
 }
 
-.nikeMan {
+.nikeWoman {
   height: 100vh;
   width: auto;
   align-items: center;
   justify-content: center;
 }
 
-.nikeMan__grid {
+.nikeWoman__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -28,35 +28,6 @@
   gap: 20px;
   margin-top: 40px;
 }
-
-// .product__content__item {
-//   border: 1px solid #ddd;
-//   padding: 20px;
-//   text-align: center;
-//   text-decoration: none;
-//   color: #333;
-//   max-width: 100%;
-// }
-
-// .product__content__item__image {
-//   max-width: 100%;
-// }
-
-// .product__content__item__name {
-//   margin-top: 10px;
-//   font-size: 16px;
-//   font-weight: bold;
-// }
-
-// .product__content__item__category {
-//   color: #666;
-//   margin-top: 5px;
-// }
-
-// .product__content__item__price {
-//   margin-top: 5px;
-//   font-weight: bold;
-// }
 
 .product__content__item {
   border: 1px solid #ddd;

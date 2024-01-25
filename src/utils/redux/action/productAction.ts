@@ -10,6 +10,7 @@ export const GetProductRequest = () => ({
 
 export const GetProductSuccess = (payload: any) => ({
   type: ActionProduct.GET_PRODUCT_SUCCESS,
+  // payload: payload.data,
   payload,
 });
 

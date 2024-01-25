@@ -6,7 +6,8 @@ import styles from "./search.module.scss";
 import Link from "next/link";
 import { ProductsProps } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import { GetProductRequest } from "@/utils/redux/action/productAction";
+import { GetProductRequest, GetProductSuccess, GetProductFailed } from "@/utils/redux/action/productAction";
+import productApi from "../api/axios/Product";
 
 const navLinkSearch = [
   {
@@ -53,12 +54,41 @@ const Search = () => {
   const [isDropdownOpenSearch, setIsDropdownSearch] = useState<boolean>(false);
   const dropdownRef: RefObject<HTMLDivElement> = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<ProductsProps[]>([]);
   const router = useRouter();
+
+  // console.log(searchQuery);
+  // console.log(searchResults);
 
   useEffect(() => {
     dispatch(GetProductRequest());
   }, [dispatch]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await productApi.getAllProducts();
+        dispatch(GetProductSuccess(result));
+      } catch (error) {
+        dispatch(GetProductFailed(error));
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
+  // console.log(products);
+
+  useEffect(() => {
+    if (searchQuery === "") {
+      setSearchResults([]);
+    } else {
+      if (products) {
+        const filteredProducts = products.filter((product: ProductsProps) => product.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        setSearchResults(filteredProducts);
+      }
+    }
+  }, [searchQuery, products]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -78,17 +108,8 @@ const Search = () => {
     setSearchQuery(e.target.value);
   };
 
-  const handleSearch = async () => {
-    const query = searchQuery.trim();
-    setSearchQuery(query);
-
-    if (query === "") {
-      setSearchResults([]);
-      return;
-    }
-
-    const filteredProducts = products.filter((product: ProductsProps) => product.name.toLowerCase().includes(query.toLowerCase()));
-    setSearchResults(filteredProducts);
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
   };
 
   const handleOpenSearch = () => {
@@ -119,16 +140,18 @@ const Search = () => {
                 Cancel
               </button>
             </div>
-            <div className={styles.dropdownSearch__products}>
-              {searchResults.map((product: ProductsProps) => (
-                <div key={product.id} className={styles.dropdownSearch__products__product}>
-                  <Link href={`/product/${product.id}`} className={styles.dropdownSearch__products__product__link}>
-                    <Image src={product.image} alt={product.name} width={200} height={200} className={styles.dropdownSearch__products__product__image} />
-                  </Link>
-                  <h3 className={styles.dropdownSearch__products__product__name}>{product.name.slice(0, 30)}...</h3>
-                </div>
-              ))}
-            </div>
+            {searchResults.length > 0 && (
+              <div className={styles.dropdownSearch__products}>
+                {searchResults.map((product: ProductsProps) => (
+                  <div key={product.id} className={styles.dropdownSearch__products__product}>
+                    <Link href={`/product/${product.id}`} className={styles.dropdownSearch__products__product__link}>
+                      <Image src={product.image} alt={product.name} width={200} height={200} className={styles.dropdownSearch__products__product__image} />
+                    </Link>
+                    <h3 className={styles.dropdownSearch__products__product__name}>{product.name.slice(0, 30)}...</h3>
+                  </div>
+                ))}
+              </div>
+            )}
             <div className={styles.dropdownSearch__brand}>
               {navLinkSearch.map((item, index) => (
                 <div key={item.path} className={styles.dropdownSearch__brand__product}>

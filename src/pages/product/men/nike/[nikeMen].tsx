@@ -1,9 +1,6 @@
-import { fetcher } from "@/lib/swr/fetcher";
 import { ProductsProps } from "@/types";
-import DetailProduct from "@/views/DetailProduct";
-import DetailProductNikeMenView from "@/views/Product/Men/NikeMan/DetailProductNikeMen";
+import DetailProductNikeMenView from "@/views/Product/Men/NikeMen/DetailProductNikeMen";
 import { useRouter } from "next/router";
-import useSWR from "swr";
 
 const DetailProductNikeMenPage = ({ nikeMen }: { nikeMen: ProductsProps }) => {
   const { query } = useRouter();

@@ -1,0 +1,43 @@
+.product__content {
+  display: flex;
+  &__skeleton {
+    width: 25%;
+    padding: 10px;
+    animation: blinking 2s infinite;
+    &__image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: grey;
+    }
+    &__name {
+      width: 100%;
+      height: 20px;
+      margin-top: 5px;
+      background-color: grey;
+    }
+    &__category {
+      width: 100%;
+      height: 16px;
+      background-color: grey;
+      margin-top: 5px;
+    }
+    &__price {
+      width: 100%;
+      height: 16px;
+      margin-top: 10px;
+      background-color: grey;
+    }
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

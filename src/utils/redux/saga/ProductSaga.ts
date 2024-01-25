@@ -14,9 +14,12 @@ import { GetProductSuccess, GetProductFailed } from "../action/productAction";
 
 function* handleGetProduct(): any {
   try {
+    // console.log("Mengambil data produk...");
     const result = yield call(Product.getAllProducts);
-    yield put(GetProductSuccess(result));
+    // console.log("Data produk berhasil diambil:", result.data);
+    yield put(GetProductSuccess(result.data));
   } catch (error) {
+    // console.error("Gagal mengambil data produk:", error);
     yield put(GetProductFailed(error));
   }
 }

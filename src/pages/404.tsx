@@ -1,7 +1,15 @@
 import styles from "@/styles/404.module.scss";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Custom404 = () => {
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/");
+    }, 2000);
+  });
   return (
     <>
       <div className={styles.error}>

@@ -1,0 +1,197 @@
+[33mcommit 10fd9888cc48326c6065152d8ca6c1d86a26bc59[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Wed Sep 27 21:57:15 2023 +0700
+
+    req data for search page use redux
+
+[33mcommit 26a21f7f96ea01b18a141d00e0f392b5314789f8[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Tue Sep 26 23:09:10 2023 +0700
+
+    add axios & redux-saga
+
+[33mcommit 3fe4506b5732cf685ad73f3e340355e526505f21[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Mon Sep 25 23:27:14 2023 +0700
+
+    add search page
+
+[33mcommit 45f8713d2243555e1e045e7781d5c8b972ef6e71[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Sat Sep 23 01:49:19 2023 +0700
+
+    fix register page & responsoive
+
+[33mcommit 602feb32fd18437b8fd4067b7a91bd0d6225929a[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 22 01:36:23 2023 +0700
+
+    fix login page
+
+[33mcommit 746aade8177807cf457ba207e4cf3914ab2906f5[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 21 23:45:09 2023 +0700
+
+    add responsive login page
+
+[33mcommit 4f5e1973b33d040f1ec9df4713897d2220818c55[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Wed Sep 20 20:39:13 2023 +0700
+
+    fix navbar dropdown & search input
+
+[33mcommit 782b55cc16147feeb5d824ced1505d2e4bb799fa[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Mon Sep 18 00:33:12 2023 +0700
+
+    add data nikeMen from firebase & add features view product details
+
+[33mcommit b539a77a18d8d4e95ebbce79c5241c5fbb1c12d9[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Sat Sep 16 02:25:06 2023 +0700
+
+    fix detail product in nikeMan page
+
+[33mcommit ae61e7a555057fb091d0de9f6514b6b43451c52b[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 15 02:37:00 2023 +0700
+
+    add data nike-man from firebase & display data nike men
+
+[33mcommit 18b55c4ba9824bb28dfa6b8f5828e655714f866c[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 14 01:56:41 2023 +0700
+
+    add data nikeMan from firebase & add api nikeMan
+
+[33mcommit b0427eebf31bee0e8d67b76d97967b3e32c220f5[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Wed Sep 13 00:01:22 2023 +0700
+
+    add footer page
+
+[33mcommit 8348b2ddcad8475e2016c78325b4f6b6183c7337[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Tue Sep 12 20:52:46 2023 +0700
+
+    add popular brand page
+
+[33mcommit 20d745ebbfbf1ef2b2662942bbaf5bf893ef3812[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Tue Sep 12 01:50:18 2023 +0700
+
+    add hero page & library react slick
+
+[33mcommit 3c5bbab83c8a9ddf3887dbea5a466badb074b86e[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Mon Sep 11 16:55:34 2023 +0700
+
+    fix navbar & bootstrap
+
+[33mcommit 722645323b9b6ad5259d016915092d2a6106e40d[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Sun Sep 10 22:37:42 2023 +0700
+
+    add responsive navbar & sidebar
+
+[33mcommit f4243e7a7bdf53003b44be5b1f0e58bc82f892b3[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Sat Sep 9 16:07:13 2023 +0700
+
+    add unit test using jest, delete ssg & use ssr for production
+
+[33mcommit ee9552a3294f346587c7d3bfd18ced8644df8a66[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Sat Sep 9 02:21:34 2023 +0700
+
+    Optimization Image, Next.config.js & dynamic import navbar
+
+[33mcommit cb7992fca39ad9b2343bf950a6e42ee4e63c16b9[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 19:44:49 2023 +0700
+
+    add OAuth/Login with google
+
+[33mcommit e52ef86b524f60186693959079cfb5f1064f68c9[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 16:02:02 2023 +0700
+
+    add Login multi role & Admin page
+
+[33mcommit 91df1fb17123dffa84a0e12fb958f881165f8a53[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 14:52:26 2023 +0700
+
+    add setup Auth register
+
+[33mcommit 9fdef2b3e2b1dd685b4f075c629e026f32ff0a0e[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 02:49:28 2023 +0700
+
+    add setup Next-Auth for signIn & signOut
+
+[33mcommit a76f1c69597f428f463430e272539fd771342278[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 01:32:04 2023 +0700
+
+    added middleware for login
+
+[33mcommit 673bed0ac2d1a6b900f0e550833559bd76953294[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 01:13:08 2023 +0700
+
+    add incremental static generation in api/revalidate.ts
+
+[33mcommit 0dfe45e0b7ae132765b00970d55ccd12efb1e6ac[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Fri Sep 8 00:33:53 2023 +0700
+
+    add Detail Product use dynmic routes
+
+[33mcommit b13a66008c1b1cdff30a36dc35a0324f4b713c6f[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 23:19:27 2023 +0700
+
+    add static site generation in product/static.tsx
+
+[33mcommit c00bc2d21267ea0f5fcaa3cadd4f59c333763d8c[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 22:47:43 2023 +0700
+
+    add server side rendering in product/server.tsx
+
+[33mcommit 0d559021ebdc6819ae32bd3c566b5ac5027493e0[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 22:16:23 2023 +0700
+
+    add library swr
+
+[33mcommit 95c0bdc88c93cd1ceb3f7358345d4f0b0d774fc5[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 02:26:17 2023 +0700
+
+    add firebase
+
+[33mcommit 0bd52438d0421661dee2423b5fc23e039dee9dcc[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 01:06:56 2023 +0700
+
+    add custom error 404
+
+[33mcommit 786c0e3ffa19dc8624b9f322ca379bacbbb74dba[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Thu Sep 7 00:32:00 2023 +0700
+
+    add styling
+
+[33mcommit 89b446869f3bd08cd547174a36e23b5a039b710b[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Wed Sep 6 23:25:41 2023 +0700
+
+    first commit
+
+[33mcommit e92e35c5f48541854a3dca1e436ad07ddf59a683[m
+Author: Agung Aji Pradana <agungajipradana@gmail.com>
+Date:   Wed Jul 12 16:59:31 2023 +0700
+
+    Initial commit from Create Next App

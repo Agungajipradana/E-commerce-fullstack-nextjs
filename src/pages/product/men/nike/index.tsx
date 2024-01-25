@@ -1,5 +1,5 @@
 import { fetcher } from "@/lib/swr/fetcher";
-import NikeManView from "@/views/Product/Men/NikeMan";
+import NikeManView from "@/views/Product/Men/NikeMen";
 import useSWR from "swr";
 
 const NikeMenPage = () => {
