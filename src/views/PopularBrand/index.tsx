@@ -6,7 +6,7 @@ import { ArrowProps } from "@/types";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import nikeLogo from "../../assets/images/popularBrand/nike-logo.svg";
 import nbLogo from "../../assets/images/popularBrand/nb-logo.svg";
-import adidasLogo from "../../assets/images/popularBrand/adidas-logo..svg";
+import adidasLogo from "../../assets/images/popularBrand/adidas-logo.svg";
 import asicsLogo from "../../assets/images/popularBrand/asics-logo.svg";
 import jordanLogo from "../../assets/images/popularBrand/jordan-logo.svg";
 import pumaLogo from "../../assets/images/popularBrand/puma-logo.svg";

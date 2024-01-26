@@ -24,7 +24,7 @@ const CardProduct = ({ href, product }: CardProductProps) => {
         <h4 className={style.product__content__item__name}>{product.name}</h4>
         <p className={style.product__content__item__category}>{product.category}</p>
         <p className={style.product__content__item__price}>
-          {product.price.toLocaleString("id-ID", {
+          {product?.price?.toLocaleString("id-ID", {
             style: "currency",
             currency: "IDR",
             minimumFractionDigits: 0,

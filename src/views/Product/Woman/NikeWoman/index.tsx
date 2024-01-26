@@ -9,7 +9,7 @@ const NikeWomanView = ({ nikeWoman }: { nikeWoman: ProductsProps[] }) => {
   return (
     <>
       <div className={style.nikeWoman__title}>
-        <Image src={NikeImage} alt="Nike Logo" width={300} height={300} className={style.nikeWoman__title__image} />
+        <Image src={NikeImage} alt="Nike Logo" width={300} height={300} className={style.nikeWoman__title__image} priority />
         <h1 className={style.nikeWoman__title__h1}>Nike For Woman</h1>
       </div>
       <div className={style.nikeWoman}>
