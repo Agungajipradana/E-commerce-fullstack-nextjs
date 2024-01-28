@@ -39,6 +39,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "nb.scene7.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

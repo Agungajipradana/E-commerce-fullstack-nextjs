@@ -41,7 +41,7 @@ const navLinkMen = [
   },
   {
     label: "New balance",
-    path: "/product/men/newbalance",
+    path: "/product/men/nb",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
@@ -84,7 +84,7 @@ const navLinkWoman = [
   },
   {
     label: "New balance",
-    path: "/product/woman/newbalance",
+    path: "/product/woman/nb",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
@@ -127,7 +127,7 @@ const navLinkKids = [
   },
   {
     label: "New balance",
-    path: "/product/kids/newbalance",
+    path: "/product/kids/nb",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
