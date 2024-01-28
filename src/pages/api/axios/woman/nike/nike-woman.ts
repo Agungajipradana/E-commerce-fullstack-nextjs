@@ -10,7 +10,7 @@ const getAllNikeWoman = async () => {
   }
 };
 
-console.log(getAllNikeWoman());
+// console.log(getAllNikeWoman());
 
 const nikeWomanApi = {
   getAllNikeWoman,

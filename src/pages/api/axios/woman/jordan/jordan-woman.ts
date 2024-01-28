@@ -10,7 +10,7 @@ const getAllJordanWoman = async () => {
   }
 };
 
-console.log(getAllJordanWoman());
+// console.log(getAllJordanWoman());
 
 const jordanWomanApi = {
   getAllJordanWoman,

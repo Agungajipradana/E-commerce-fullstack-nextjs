@@ -35,8 +35,8 @@ const navLinkMen = [
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
-    label: "Asics",
-    path: "/product/men/asics",
+    label: "Onitsuka",
+    path: "/product/men/onitsuka",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
@@ -78,8 +78,8 @@ const navLinkWoman = [
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
-    label: "Asics",
-    path: "/product/woman/asics",
+    label: "Onitsuka",
+    path: "/product/woman/onitsuka",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
@@ -121,8 +121,8 @@ const navLinkKids = [
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
-    label: "Asics",
-    path: "/product/kids/asics",
+    label: "Onitsuka",
+    path: "/product/kids/onitsuka",
     categories: ["All Shoes", "Lifestyle", "Running", "Basketball", "Football"],
   },
   {
