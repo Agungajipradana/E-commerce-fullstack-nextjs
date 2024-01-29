@@ -12,8 +12,8 @@ const getAllAdidasKids = async () => {
 
 // console.log(getAllAdidasKids());
 
-const nikeKidsApi = {
+const adidasKidsApi = {
   getAllAdidasKids,
 };
 
-export default nikeKidsApi;
+export default adidasKidsApi;

@@ -12,8 +12,8 @@ const getAllOnitsukaKids = async () => {
 
 // console.log(getAllOnitsukaKids());
 
-const nikeKidsApi = {
+const onitsukaKidsApi = {
   getAllOnitsukaKids,
 };
 
-export default nikeKidsApi;
+export default onitsukaKidsApi;

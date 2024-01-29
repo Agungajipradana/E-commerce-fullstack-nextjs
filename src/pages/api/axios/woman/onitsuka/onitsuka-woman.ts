@@ -12,8 +12,8 @@ const getAllOnitsukaWoman = async () => {
 
 // console.log(getAllOnitsukaWoman());
 
-const nikeWomanApi = {
+const onitsukaWomanApi = {
   getAllOnitsukaWoman,
 };
 
-export default nikeWomanApi;
+export default onitsukaWomanApi;
