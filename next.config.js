@@ -51,6 +51,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.vans.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
